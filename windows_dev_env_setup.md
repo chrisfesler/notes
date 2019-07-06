@@ -7,11 +7,15 @@ This is the first time I've developed on Windows since I was writing C# circa 20
 it's been all Linux and Mac. WSL makes Windows much more Mac-Like, and the upsides of Windows
 (for me, _much_ better MS Office) make this all worth trying to get right.
 
+The thing that I'm aimed at is being able to run an IDE in Windows (I currently prefer GoLand to
+VS Code, but intend to continue evaluating both), but build and test in Ubuntu. With all the stuff
+documented below, this is working well.
+
 This is organized into sections:
 
 * Set up and dial in Ubuntu
 * Get Windows to a happy spot
-* Set up Vim
+* Set up Vim - obviously not necessary unless you're strung out on vim, like me.
 
 ## Set up and dial in Ubuntu
 
@@ -57,7 +61,7 @@ pip3 install neovim
 ```
 * add aliases for vi and vim to nvim in `.bash_aliases`
 
-### Install chocolatey in Windows
+## Get Windows set up nicely with Chocolatey
 
 Chocolatey is a homebrew-like package manager for Windows. I've not used it before, but again
 figure why not give it a shot?
@@ -67,9 +71,9 @@ figure why not give it a shot?
 * exit powershell and start again (as admin), and then install a crud-load of stuff:
     * `choco install -y golang openjdk docker-desktop vscode neovim python git make`
 
-#### some dumb little things that are handy for me
+### some dumb little things that are handy for me
 
-##### Make 'which' in PowerShell an alias to `Get-Command`, which I will likely never remember
+#### Make 'which' in PowerShell an alias to `Get-Command`, which I will likely never remember
 
 ```
 # add an alias from which to Get-Command
@@ -78,7 +82,7 @@ figure why not give it a shot?
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-##### Install a terminal that sucks less
+#### Install a terminal that sucks less
 
 I have tried a handful of terminal programs in Windows and none of them are even close to iTerm.
 Bummer news. Right now, I'm using the new "Windows Terminal," which is in early access release
