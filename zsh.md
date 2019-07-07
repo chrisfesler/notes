@@ -14,4 +14,5 @@ chsh -s $(which zsh)
 
 #### .zshrc
 
-[zshrc](zshrc)
+[zshrc](dotfiles/zshrc)
+[zsh_aliases](dotfiles/zsh_aliases)
