@@ -161,6 +161,9 @@ inoremap <S-Insert> <ESC>"+p
 :set mouse=a
 vnoremap <C-Insert> "+y
 
+" alternative: yank and put use system clipboard
+" set clipboard=unnamedplus
+
 let g:markdown_fenced_languages = ['go', 'java', 'pyton', 'bash=sh', 'vim']
 " this seems to not work, thanks tpope
 "let g:markdown_syntax_conceal = 0
@@ -204,16 +207,14 @@ health#provider#check
 
 #### clipboard
 
-OMG, the clipboard in neovim + Windows + Ubuntu. What a pain. The `local_init.vim` file below will help, but still
-moving stuff through the system clipboard to vim in windows and Ubuntu is annoying. Here's one
-necessary step:
+OMG, the clipboard in neovim + Windows + Ubuntu. What a pain. The `local_init.vim` makes stuff better, but still
+moving stuff through the system clipboard to vim in windows and Ubuntu is annoying. Here's one necessary step:
 
 >To use the Windows clipboard from within WSL, Neovim has to be installed on both Windows and WSL. The win32yank.exe provided by the Neovim Windows installation has to be symlinked to a directory included in your $PATH so it can be found by Neovim on WSL. Replace $NEOVIM_WIN_DIR with the path to your Neovim Windows installation, e.g. /mnt/c/Program Files/Neovim. The command can then be symlinked using:
->
->`sudo ln -s "$NEOVIM_WIN_DIR/bin/win32yank.exe" "/usr/local/bin/win32yank.exe"`
->
->Also, don't forget to set your clipboard to unnamedplus using set clipboard=unnamedplus to make Neovim use the system's clipboard (now Windows' clipboard) by default.
 
+```
+sudo ln -s "$NEOVIM_WIN_DIR/bin/win32yank.exe" /mnt/c/tools/neovim/Neovim/bin/win32yank.exe`
+```
 https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 
 #### explorer context menu registry edit
