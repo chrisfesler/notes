@@ -31,16 +31,29 @@ then reboot your system and install Ubuntu.
 
 ### Get users squared away
 
-* in ubuntu
-    * `sudo usermod -a -G sudo cfesler`
-    * `useradd cfesler`
-* in powershell
-    * `ubuntu config --default-user cfesler`
-      `sc stop LxssManager`
-      `sc start LxssManager`
-    * https://docs.microsoft.com/en-us/windows/wsl/user-support
+I've done this a few times, and at least once, I did not get a user created in Ubuntu -- I just started as root. To rectify that problem, I did:
 
-Now I'm me instead of root when I start an ubuntu shell.
+##### In Ubuntu
+
+```
+useradd cfesler
+sudo usermod -a -G sudo cfesler
+```
+##### In an admin PowerShell
+
+```
+ubuntu config --default-user cfesler
+sc stop LxssManager
+sc start LxssManager
+```
+https://docs.microsoft.com/en-us/windows/wsl/user-support
+
+### update ubuntu
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
 
 ### install homebrew in Ubuntu under under wsl
 
@@ -48,12 +61,11 @@ I've not used homebrew under Linux before, but have used it under Mac for many y
 try it, right?
 
 ```
+sudo apt-get install openssh-client build-essential gcc-5
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 # follow instructions after homebrew install
 echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-sudo apt-get update
-sudo apt-get install build-essential gcc-5
 brew install golang git python 
 ```
 
@@ -72,9 +84,8 @@ figure why not give it a shot?
 #### Make 'which' in PowerShell an alias to `Get-Command`, which I will likely never remember
 
 ```
-# add an alias from which to Get-Command
-"`nNew-Alias which get-command" | add-content $profile
-# allow the profile script to run
+# add an alias from which to Get-Command and grant users the right to run it
+New-Alias which get-command | add-content $profile
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
@@ -84,9 +95,10 @@ I have tried a handful of terminal programs in Windows and none of them are even
 Bummer news. Right now, I'm using the new "Windows Terminal," which is in early access release
 from Microsoft.
 
-* Install Windows Terminal from the windows store
+* Install Windows Terminal from the windows store. It requires the May 2019 windows update, so
+  apply that first if indicated.
 * Start the terminal, then go to 'settings' and change the Ubuntu color scheme from 'Campbell'
-  to 'Solarized Dark' because that's what I like
+  to 'Solarized Dark' because that's what I like.
 
 You can easily start an Ubuntu term from here. I moved the Ubuntu profile to be the first in the
 settings json so that ctrl-shift-1 would give me that instead of a PowerShell. 
