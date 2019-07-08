@@ -10,6 +10,8 @@ sudo apt-get zsh
 brew install zplug
 # set zsh as default shell
 chsh -s $(which zsh)
+# fix an annoying problem in which zsh complains about permissions
+sudo chmod 755 /home/linuxbrew/.linuxbrew/Cellar
 ```
 
 #### .zshrc
