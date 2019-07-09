@@ -103,6 +103,6 @@ from Microsoft.
 You can easily start an Ubuntu term from here. I moved the Ubuntu profile to be the first in the
 settings json so that ctrl-shift-1 would give me that instead of a PowerShell. 
 
-*TODO*: set up so that I can start a windows terminal with Ubuntu from a pinned icon on my
-task bar.
+To make Ubuntu the default terminal, copy the `guid` value from that profile to
+`globals/defaultProfile`.
 
