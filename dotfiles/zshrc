@@ -19,6 +19,8 @@ setopt hist_reduce_blanks
 setopt share_history # between shells
 setopt HIST_IGNORE_SPACE # don't record if starts with a space
 
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -40,8 +42,6 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-# vi edit mode on the command line
-set -o vi
 
 # initialilze zplug
 export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
@@ -55,7 +55,11 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+#zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# must load after zsh-syntax-highlighting, per https://github.com/zsh-users/zsh-history-substring-search
+zplug "zsh-users/zsh-history-substring-search", from:github, defer:3
+# uncomment to play with buffalo
+#zplug "1995parham/buffalo.zsh", from:github
 
 if ! zplug check --verbose; then
 	printf "Install zplug plugins? [y/N]"
@@ -66,6 +70,23 @@ fi
 
 zplug load
 
+# history-substring-search bound to arrow keys -- none of these work!
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '\E[A' history-substring-search-up
+bindkey '\E[B' history-substring-search-down
+bindkey '\EOA' history-substring-search-up
+bindkey '\EOB' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# but these do
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# vi edit mode on the command line
+set -o vi
+
 source_if_exists ~/.zsh_aliases
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
