@@ -55,6 +55,7 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh # I require vi mode, YMMV
 #zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # must load after zsh-syntax-highlighting, per https://github.com/zsh-users/zsh-history-substring-search
 zplug "zsh-users/zsh-history-substring-search", from:github, defer:3
@@ -70,23 +71,24 @@ fi
 
 zplug load
 
-# history-substring-search bound to arrow keys -- none of these work!
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '\E[A' history-substring-search-up
-bindkey '\E[B' history-substring-search-down
-bindkey '\EOA' history-substring-search-up
-bindkey '\EOB' history-substring-search-down
-bindkey '^[OA' history-substring-search-up
-bindkey '^[OB' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-# but these do
+# history-substring-search bound to arrow keys for emacs mode users
+# it can be a bit fussy getting the right code for arrow keys; here
+# are some that might work
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
+#bindkey '^[OA' history-substring-search-up
+#bindkey '^[OB' history-substring-search-down
+#bindkey '\EOA' history-substring-search-up
+#bindkey '\EOB' history-substring-search-down
+#bindkey '\E[A' history-substring-search-up
+#bindkey '\E[B' history-substring-search-down
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+# I live by `set -o vi`, so these work:
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-# vi edit mode on the command line
-set -o vi
+bindkey -M viins '^[[A' history-substring-search-up
+bindkey -M viins '^[[B' history-substring-search-down
 
 source_if_exists ~/.zsh_aliases
 
