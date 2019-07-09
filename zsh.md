@@ -18,3 +18,11 @@ sudo chmod 755 /home/linuxbrew/.linuxbrew/Cellar
 
 * [zshrc](dotfiles/zshrc)
 * [zsh_aliases](dotfiles/zsh_aliases)
+
+I simply clone this repo and make a symlink:
+
+```
+# change path to "notes" according to your env
+ln -s ~/src/notes/dotfiles/zshrc ~/.zshrc
+ln -s ~/src/notes/dotfiles/zsh_aliases ~/.zsh_aliases
+```
