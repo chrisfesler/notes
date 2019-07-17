@@ -66,7 +66,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/i
 # follow instructions after homebrew install
 echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-brew install golang git python 
+brew install jdk golang git python 
 ```
 
 ## Get Windows set up nicely with Chocolatey
