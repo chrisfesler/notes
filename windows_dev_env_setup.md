@@ -89,6 +89,10 @@ New-Alias which get-command | add-content $profile
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
+#### Map caps-lock to ctrl
+
+Make [this registry change](caps_lock_to_ctrl.reg).
+
 #### Install a terminal that sucks less
 
 I have tried a handful of terminal programs in Windows and none of them are even close to iTerm.
