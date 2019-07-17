@@ -120,11 +120,7 @@ https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-
 
 #### explorer context menu registry edit
 
-Right-click -> Open with Neovim:
-
-```
-HKEY_CURRENT_USER\Software\Classes\*\shell\Open with Neovim\command -> cmd /c start nvim-qt.exe -- -- %1
-```
+Right-click -> Open with Neovim: [nvim-context-menu.reg](nvim-context-menu.reg)
 
 ### Symlink Ubuntu nvim config to Windows nvim config
 
