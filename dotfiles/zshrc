@@ -7,6 +7,8 @@ source_if_exists() {
 	fi
 }
 
+JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
+
 export HISTFILE=~/.zsh_history
 # TODO why both of these?
 export HISTSIZE=10000
