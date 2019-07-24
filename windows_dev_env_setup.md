@@ -48,25 +48,20 @@ sc start LxssManager
 ```
 https://docs.microsoft.com/en-us/windows/wsl/user-support
 
-### update ubuntu
+### update ubuntu and then install some stuff we need
 
 ```
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 ```
 
-### install homebrew in Ubuntu under under wsl
-
-I've not used homebrew under Linux before, but have used it under Mac for many years. Why not
-try it, right?
+We need go, jdk 12, and python. Bionic has old JDK and golang, so we need backports for those.
 
 ```
-sudo apt-get install openssh-client build-essential gcc-5
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-# follow instructions after homebrew install
-echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-brew install jdk golang git python 
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get -y install golang-go openjdk-12-jdk python3-pip
 ```
 
 ## Get Windows set up nicely with Chocolatey
