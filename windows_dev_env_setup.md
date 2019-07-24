@@ -61,7 +61,7 @@ We need go, jdk 12, and python. Bionic has old JDK and golang, so we need backpo
 sudo add-apt-repository ppa:longsleep/golang-backports
 sudo add-apt-repository ppa:openjdk-r/ppa
 sudo apt-get update
-sudo apt-get -y install golang-go openjdk-12-jdk python3-pip
+sudo apt-get -y install golang-go openjdk-12-jdk python3-pip python-pip
 ```
 
 ## Get Windows set up nicely with Chocolatey
