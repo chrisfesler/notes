@@ -6,7 +6,7 @@ followed along to this point, then it's installed in both Windows and Ubuntu.
 First, let's install neovim:
 
 * In PowerShell, as admin: `choco install neovim`
-* In Ubuntu: `brew install neovim`
+* In Ubuntu: `sudo apt-get install -y neovim`
 
 Next, in _both_ PowerShell (as a regular user) and in Ubuntu:
 
