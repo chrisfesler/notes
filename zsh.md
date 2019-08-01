@@ -7,11 +7,13 @@ previously, but it always felt bloated and hard to manage. Perhaps this will be 
 # manage zsh with apt-get so we don't have to modify /etc/shells by hand
 sudo apt-get zsh
 # zsh plugin manager
-brew install zplug
-# set zsh as default shell
-chsh -s $(which zsh)
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# set zsh as default shell: add this to ~/.bash_profile (seems to work better than chsh)
+if [ -t 1 ]; then
+exec zsh
+fi
 # fix an annoying problem in which zsh complains about permissions
-sudo chmod 755 /home/linuxbrew/.linuxbrew/Cellar
+sudo chmod -R 755 ~/.zplug
 ```
 
 #### .zshrc
