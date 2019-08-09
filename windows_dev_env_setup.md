@@ -60,8 +60,9 @@ We need go, jdk 12, and python. Bionic has old JDK and golang, so we need backpo
 ```
 sudo add-apt-repository ppa:longsleep/golang-backports
 sudo add-apt-repository ppa:openjdk-r/ppa
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
-sudo apt-get -y install golang-go openjdk-12-jdk python3-pip python-pip
+sudo apt-get -y install golang-go openjdk-12-jdk python3-pip python-pip neovim
 ```
 
 ## Get Windows set up nicely with Chocolatey
@@ -90,6 +91,9 @@ Make [this registry change](caps_lock_to_ctrl.reg).
 
 #### Install a terminal that sucks less
 
+*UPDATE*: I'm currently using wsl-terminal, and it's working reasonably well. I like the windows
+terminal a little better, but it crashes sometimes, which I like much worse.
+
 I have tried a handful of terminal programs in Windows and none of them are even close to iTerm.
 Bummer news. Right now, I'm using the new "Windows Terminal," which is in early access release
 from Microsoft.
@@ -105,3 +109,10 @@ settings json so that ctrl-shift-1 would give me that instead of a PowerShell.
 To make Ubuntu the default terminal, copy the `guid` value from that profile to
 `globals/defaultProfile`.
 
+#### Set up docker
+
+```
+choco install docker-desktop
+```
+
+And then follow [this helpful guide](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly)

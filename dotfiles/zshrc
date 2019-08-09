@@ -43,6 +43,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=5"
 # initialilze zplug
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
@@ -56,11 +57,10 @@ zplug "lib/completion", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/vi-mode", from:oh-my-zsh # I require vi mode, YMMV
-#zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # must load after zsh-syntax-highlighting, per https://github.com/zsh-users/zsh-history-substring-search
 zplug "zsh-users/zsh-history-substring-search", from:github, defer:3
 # uncomment to play with buffalo
-#zplug "1995parham/buffalo.zsh", from:github
 
 if ! zplug check --verbose; then
 	printf "Install zplug plugins? [y/N]"
@@ -91,4 +91,7 @@ bindkey -M viins '^[[A' history-substring-search-up
 bindkey -M viins '^[[B' history-substring-search-down
 
 source_if_exists ~/.zsh_aliases
+source_if_exists ~/.mintty-solarized-dark.sh
 
+export PATH="$PATH:$HOME/.local/bin"
+export DOCKER_HOST=tcp://localhost:2375
