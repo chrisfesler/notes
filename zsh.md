@@ -5,7 +5,8 @@ previously, but it always felt bloated and hard to manage. Perhaps this will be 
 
 ```
 # manage zsh with apt-get so we don't have to modify /etc/shells by hand
-sudo apt-get zsh
+# note that zplug requires gawk
+sudo apt-get zsh gawk
 # zsh plugin manager
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 # set zsh as default shell: add this to ~/.bash_profile (seems to work better than chsh)
