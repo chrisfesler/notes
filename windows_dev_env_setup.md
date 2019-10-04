@@ -18,6 +18,12 @@ This is organized into sections:
 
 ## Set up and dial in Ubuntu
 
+### Update: WSL is pain
+
+I've given up on WSL for now. I'm using Virtual Box + Ubuntu 19.04 and I'm _much_ happier. Much of the stuff here still applies, but working in docker is way easier, building is faster, etc., etc.
+
+### ToDo: delete this stuff
+
 The actual setup of Ubuntu requires enabling an optional windows feature and then installing Ubuntu
 from the app store. There are a million how-tos online, including this one: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
