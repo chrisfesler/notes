@@ -19,4 +19,5 @@ set conceallevel=0
 " uncomment if need more fenced code block lines; left out for performance
 "let g:markdown_minlines=100
 
+set termguicolors
 colorscheme NeoSolarized

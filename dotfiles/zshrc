@@ -94,4 +94,6 @@ source_if_exists ~/.zsh_aliases
 source_if_exists ~/.mintty-solarized-dark.sh
 
 export PATH="$PATH:$HOME/.local/bin"
-export DOCKER_HOST=tcp://localhost:2375
+export EDITOR=vim
+# Needed for WSL
+# export DOCKER_HOST=tcp://localhost:2375
