@@ -1,4 +1,4 @@
-#making docker work
+# making docker work
 
 I was getting frustrating errors from `docker build` that turned out to be DNS-related:
 
